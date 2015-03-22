@@ -7,7 +7,65 @@
 
 </head>
 <body>
-	<div ng-controller="index">{{message}}</div>
+	<div ng-controller="index">
+		<h1>{{message}}</h1>
+		<p>DepStation</p>
+		<div>
+			<input type="radio" name="depsta" value="taipei" ng-model="depstation">Taipei</input>
+			<input type="radio" name="depsta" value="banqiao" ng-model="depstation">Banqiao</input>
+			<input type="radio" name="depsta" value="taoyuan" ng-model="depstation">Ttaoyuan</input>
+			<input type="radio" name="depsta" value="hsinchu" ng-model="depstation">Hsinchu</input>
+			<input type="radio" name="depsta" value="taichung" ng-model="depstation">Taichung</input>
+			<input type="radio" name="depsta" value="chiayi" ng-model="depstation">Chiayi</input>
+			<input type="radio" name="depsta" value="tainan" ng-model="depstation">Tainan</input>
+			<input type="radio" name="depsta" value="zuoying" ng-model="depstation">Zuoying</input>
+		</div>
+		<br>
+		<p>ArrStation</p>
+		<div>
+			<input type="radio" name="arrsta" value="taipei" ng-model="arrstation">Taipei</input>
+			<input type="radio" name="arrsta" value="banqiao" ng-model="arrstation">Banqiao</input>
+			<input type="radio" name="arrsta" value="taoyuan" ng-model="arrstation">Ttaoyuan</input>
+			<input type="radio" name="arrsta" value="hsinchu" ng-model="arrstation">Hsinchu</input>
+			<input type="radio" name="arrsta" value="taichung" ng-model="arrstation">Taichung</input>
+			<input type="radio" name="arrsta" value="chiayi" ng-model="arrstation">Chiayi</input>
+			<input type="radio" name="arrsta" value="tainan" ng-model="arrstation">Tainan</input>
+			<input type="radio" name="arrsta" value="zuoying" ng-model="arrstation">Zuoying</input>
+		</div>
+		<br>
+		<p>Deptime</p>
+		<select ng-model="deptime">
+			<option name="deptime" value="06:00">06:00</option>
+			<option name="deptime" value="07:00">07:00</option>
+			<option name="deptime" value="08:00">08:00</option>
+			<option name="deptime" value="09:00">09:00</option>
+			<option name="deptime" value="10:00">10:00</option>
+			<option name="deptime" value="11:00">11:00</option>
+			<option name="deptime" value="12:00">12:00</option>
+			<option name="deptime" value="13:00">13:00</option>
+			<option name="deptime" value="14:00">14:00</option>
+			<option name="deptime" value="15:00">15:00</option>
+			<option name="deptime" value="16:00">16:00</option>
+			<option name="deptime" value="17:00">17:00</option>
+			<option name="deptime" value="18:00">18:00</option>
+			<option name="deptime" value="19:00">19:00</option>
+			<option name="deptime" value="20:00">20:00</option>
+			<option name="deptime" value="21:00">21:00</option>
+			<option name="deptime" value="22:00">22:00</option>
+			<option name="deptime" value="23:00">23:00</option>
+		</select>
+		<br>
+		<p>DepDate</p>
+		<input type="text" ng-model="depdate"/>
+		<br>
+		{{depstation}}
+		<br>
+		{{arrstation}}
+		<br>
+		{{depdate}}
+		<br>
+		{{deptime}}
+	</div>
 	
 </body>
-</html>
+</html> 
