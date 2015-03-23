@@ -9,7 +9,7 @@
 <body>
 	<div ng-controller="index">
 		<h1>{{message}}</h1>
-		<p>DepStation</p>
+		<p ng-class="{bold:isBold,italic:isItalic(),underline:isUnderline()}">DepStation</p>
 		<div>
 			<input type="radio" name="depsta" value="taipei" ng-model="depstation">Taipei</input>
 			<input type="radio" name="depsta" value="banqiao" ng-model="depstation">Banqiao</input>
@@ -57,14 +57,10 @@
 		<br>
 		<p>DepDate</p>
 		<input type="text" ng-model="depdate"/>
-		<br>
-		{{depstation}}
-		<br>
-		{{arrstation}}
-		<br>
-		{{depdate}}
-		<br>
-		{{deptime}}
+		<p>{{depstation}}</p>
+		<p>{{arrstation}}</p>
+		<p>{{depdate}}</p>
+		<p>{{deptime}}</p>
 	</div>
 	
 </body>
