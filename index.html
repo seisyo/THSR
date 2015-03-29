@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html ng-app="root">
 <head>
-
+	<meta charset="utf-8">
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 	<script src="/Users/jo-seisho/Desktop/AngularJS/root.js"></script>
 
 </head>
 <body>
 	<div ng-controller="index">
-		<h1>{{message}}</h1>
-		<p ng-class="{bold:isBold,italic:isItalic(),underline:isUnderline()}">DepStation</p>
+		<h1>THSR student's ticket price search system</h1>
+		<p>DepStation</p>
 		<div>
 			<input type="radio" name="depsta" value="taipei" ng-model="depstation">Taipei</input>
 			<input type="radio" name="depsta" value="banqiao" ng-model="depstation">Banqiao</input>
@@ -33,6 +33,8 @@
 			<input type="radio" name="arrsta" value="zuoying" ng-model="arrstation">Zuoying</input>
 		</div>
 		<br>
+		<p>DepDate</p>
+		<input type="text" ng-model="depdate"/>
 		<p>Deptime</p>
 		<select ng-model="deptime">
 			<option name="deptime" value="06:00">06:00</option>
@@ -55,12 +57,14 @@
 			<option name="deptime" value="23:00">23:00</option>
 		</select>
 		<br>
-		<p>DepDate</p>
-		<input type="text" ng-model="depdate"/>
+		
 		<p>{{depstation}}</p>
 		<p>{{arrstation}}</p>
 		<p>{{depdate}}</p>
 		<p>{{deptime}}</p>
+
+		<!-- <button>submit</button> -->
+		<input type="submit" value="送出" ng-click="depclick()">
 	</div>
 	
 </body>
