@@ -1,12 +1,13 @@
-from flask import Flask,request,json,current_app
+from functools import wraps
+from flask import Flask,request,current_app,json
 from flask.ext import restful
 from flask.ext.restful import Resource,Api
-import pymysql
 from datetime import datetime
-import time
-##from flask.ext.jsonpify import jsonify
+from flask.ext.jsonpify import jsonify
 
-from functools import wraps
+import pymysql
+import time
+
 
 ##import json ##as sys_json
 
@@ -30,21 +31,6 @@ def convertdeltatostr(obj):
 		return str(obj)
 	else:
 		return obj
-
-def jsonp(func):
-    """Wraps JSONified output for JSONP requests."""
-    @wraps(func)
-    def decorated_function(*args, **kwargs):
-        callback = request.args.get('callback', False)
-        if callback:
-            data = str(func(*args, **kwargs).data)
-            content = str(callback) + '(' + data + ')'
-            mimetype = 'application/javascript'
-            return current_app.response_class(content, mimetype=mimetype)
-        else:
-            return func(*args, **kwargs)
-    return decorated_function
-
 
 class searchtraintime(Resource):
 	
@@ -90,7 +76,7 @@ class searchtraintime(Resource):
 		print(result)
 		cursor.execute(result)
 		data = list(cursor.fetchall())##將tuple換成list
-		print(data)
+		# print(data)
 		
 		dicdataout = {}##存進要jsonify的資料到dictionary中，方便輸出
 		for a in enumerate(data):
@@ -107,11 +93,13 @@ class searchtraintime(Resource):
 				dicdata[int(key)] = data[a[0]][index[0]]##每一筆各自存進去
 				key += 1
 			dicdataout[int(a[0])] = dicdata
+		# print(dicdataout,type(dicdataout))
 		
-		print(dicdataout,type(dicdataout))
-		print(jsonp(json.jsonify(dicdataout)))
-		return jsonp(json.jsonify(dicdataout))
+		# print(json.jsonify(dicdataout))
 		
+		# return jsonify(dicdataout)
+		return jsonify(dicdataout)
+
 api.add_resource(searchtraintime,'/searchtrain')
 if __name__ == '__main__':
 	app.run(debug = True)
