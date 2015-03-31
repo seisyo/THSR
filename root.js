@@ -8,13 +8,14 @@ angular.module("root",[])
             console.log($scope.depdate);
             console.log($scope.deptime);
 
-            $http.jsonp("http://127.0.0.1:5000/searchtrain?callback=JSON_CALLBACK"+"&depsta="+$scope.depstation+"&arrsta="+$scope.arrstation+"&date="+$scope.depdate+"&time="+$scope.deptime).success(function(data){
-                console.log(data);
-                $scope.data = data;
-                return data;
-             }).error(function(){
+            $http.jsonp("http://127.0.0.1:5000/searchtrain?callback=JSON_CALLBACK"+"&depsta="+$scope.depstation+"&arrsta="+$scope.arrstation+"&date="+$scope.depdate+"&time="+$scope.deptime).success(function(datas){
+                console.log(datas);
+                $scope.datas = datas;
+                return datas;
+            }).error(function(){
                 console.log("error!!")
-             });
+            });
+
         };
     };
 }]);
