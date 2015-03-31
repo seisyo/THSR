@@ -9,7 +9,7 @@
 <body>
 	<div ng-controller="index">
 		<h1>THSR student's ticket price search system</h1>
-		<p>DepStation</p>
+		<p>DepStation-----[{{depstation}}]</p>
 		<div>
 			<input type="radio" name="depsta" value="taipei" ng-model="depstation">Taipei</input>
 			<input type="radio" name="depsta" value="banqiao" ng-model="depstation">Banqiao</input>
@@ -21,7 +21,7 @@
 			<input type="radio" name="depsta" value="zuoying" ng-model="depstation">Zuoying</input>
 		</div>
 		<br>
-		<p>ArrStation</p>
+		<p>ArrStation-----[{{arrstation}}]</p>
 		<div>
 			<input type="radio" name="arrsta" value="taipei" ng-model="arrstation">Taipei</input>
 			<input type="radio" name="arrsta" value="banqiao" ng-model="arrstation">Banqiao</input>
@@ -33,9 +33,9 @@
 			<input type="radio" name="arrsta" value="zuoying" ng-model="arrstation">Zuoying</input>
 		</div>
 		<br>
-		<p>DepDate</p>
+		<p>DepDate(ex.3/31)-----[{{depdate}}]</p>
 		<input type="text" ng-model="depdate"/>
-		<p>Deptime</p>
+		<p>Deptime-----[{{deptime}}]</p>
 		<select ng-model="deptime">
 			<option name="deptime" value="06:00">06:00</option>
 			<option name="deptime" value="07:00">07:00</option>
@@ -57,14 +57,8 @@
 			<option name="deptime" value="23:00">23:00</option>
 		</select>
 		<br>
-		
-		<p>{{depstation}}</p>
-		<p>{{arrstation}}</p>
-		<p>{{depdate}}</p>
-		<p>{{deptime}}</p>
-
-		<!-- <button>submit</button> -->
 		<input type="submit" value="送出" ng-click="depclick()">
+		<div>{{data}}</div>
 	</div>
 	
 </body>
