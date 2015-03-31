@@ -7,28 +7,20 @@ angular.module("root",[])
             console.log($scope.arrstation);
             console.log($scope.depdate);
             console.log($scope.deptime);
-                // console.log($http);
-                // $http.get('http://127.0.0.1:5000/searchtrain', {
-                //     depsta: $scope.depstation, 
-                //     arrsta: $scope.arrstation, 
-                //     date: $scope.depdate, 
-                //     time: $scope.deptime
-                // }).success(function(data){
-                //     console.log(data);
-                // });
-            var responsePromise = $http.jsonp( "http://127.0.0.1:5000/searchtrain?callback=JSON_CALLBACK", {
-                depsta: $scope.depstation | String, 
-                arrsta: $scope.arrstation | String, 
-                date: $scope.depdate | String, 
-                time: $scope.deptime | String
+                
+            $http.jsonp("http://127.0.0.1:5000/searchtrain?callback=JSON_CALLBACK"+"&depsta="+$scope.depstation+"&arrsta="+$scope.arrstation+"&date="+$scope.depdate+"&time="+$scope.deptime).success(function(data){
+                console.log(data);
+             }).error(function(){
+                console.log("error!!")
              });
 
-            responsePromise.success(function(data) {
-                console.log(data);
-    // do something with the returned JavaScript object
-    // ( in the "data" parameter ).
-            });
+            // ,{
+            //     depsta: $scope.depstation, 
+            //     arrsta: $scope.arrstation, 
+            //     date: $scope.depdate, 
+            //     time: $scope.deptime
+            //  }
 
-}
-};
+        };
+    };
 }]);
